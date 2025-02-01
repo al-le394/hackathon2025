@@ -10,17 +10,17 @@
 
     <script>
         function addClass(event){
-            const classInput = document.querySelector(".className");
-                
+            var className = document.getElementById("className");
+            var classText = className.value;   
             var location = document.getElementById("classDropdown");
             var locationValue = location.value;
             var startTime = document.getElementById("startDropdown");
             startValue = startTime.value;
             var endTime = document.getElementById("endDropdown");
             var endValue = endTime.value;
-            console.log(className, startTime, endTime);
-    
-            document.getElementById("testText").innerHTML = locationValue + " " + startValue +  "-" + endValue;
+            var textTemp = classText + ":" + locationValue + " " + startValue +  "-" + endValue;
+            var scheduleList = "<li>" + textTemp + "</li>"
+            document.getElementById("list").innerHTML += scheduleList;
         }
         
     </script>
@@ -85,7 +85,7 @@
                         <option value = "Forbles Hall">Forbes Hall</option>
                         <option value = "Forbes Craig Apartments">Forbes Craig Apartments</option>
                         <option value = "Frathouses">Frathouses</option>
-                        <option value = "Frick FIne Arts Building">Frick Fine Arts Building</option>
+                        <option value = "Frick Fine Arts Building">Frick Fine Arts Building</option>
                         <option value = "Gardner Steel Conference Center">Gardner Steel Conference Center</option>
                         <option value = "Heinz Chapel">Heinz Chapel</option>
                         <option value = "Hillman Library">Hillman Library</option>
@@ -188,7 +188,9 @@
                     </div>
                
                     <button style = "font-size: 25px; right: 300px; top: 500px;" onclick="addClass()">Add</button>
-                    <textarea id = "testText" name = "testText" rows = "4" cols = "50">This is the output text.</textarea>
+                    <ul id = "list">
+                    <li>Schedule: </li>
+                    </ul>
                
             </aside>
         </div>
